@@ -17,7 +17,12 @@ function getRandomColor() {
 }
 
 function setRandomLinkColor() {
-	Array.from(document.getElementsByTagName("a")).forEach((e) => {
+	// Color spans inside .links (bracketed links)
+	Array.from(document.querySelectorAll(".links a span")).forEach((e) => {
+		e.style.textDecorationColor = getRandomColor();
+	});
+	// Color regular links outside .links
+	Array.from(document.querySelectorAll("a:not(.links a)")).forEach((e) => {
 		e.style.textDecorationColor = getRandomColor();
 	});
 }

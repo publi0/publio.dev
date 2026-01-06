@@ -265,9 +265,18 @@ tr td br {
 
 .links {
     margin: 25px 0;
+    word-spacing: 0.5em;
 }
-.links a:not(:last-child) {
-    padding: 0 12px 0 0;
+.links a {
+    text-decoration: none;
+}
+.links a span {
+    text-decoration: underline;
+    text-decoration-thickness: 0.3ex;
+    text-underline-offset: 0.3ex;
+}
+.links a:hover span {
+    font-weight: bold;
 }
 
 .newsletter-blurb {
@@ -357,6 +366,16 @@ tr td br {
 .bio {
     line-height: 1.6;
     font-size: clamp(1rem, 0.96rem + 0.22vw, 1.125rem);
+}
+
+.stack {
+    margin: 25px 0;
+    line-height: 1.8;
+    color: var(--gray);
+}
+
+.stack strong {
+    color: var(--white);
 }
 
 .contact {
