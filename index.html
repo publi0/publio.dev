@@ -1,61 +1,126 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Felipe Públio</title>
-        <meta name="description" content="Felipe Públio, Software Engineer" />
-
-        <meta property="og:title" content="Felipe Públio" />
-        <meta property="og:url" content="https://www.publio.dev/" />
-        <meta property="og:image" content="./img/disk.ico" />
-        <meta
-            property="og:description"
-            content="Felipe Públio, Software Engineer"
-        />
-        <meta property="og:site_name" content="Felipe Públio" />
-
-        <link rel="disk" sizes="180x180" href="./img/disk.ico" />
-        <link rel="shortcut icon" href="./img/disk.ico" />
-        <meta name="theme-color" content="#ffffff" />
+        <meta charset="utf-8" />
         <meta
             name="viewport"
             content="width=device-width, initial-scale=1, maximum-scale=5"
         />
 
-        <link rel="stylesheet" href="./style.css" />
+        <title>Felipe Públio — Senior Backend Engineer</title>
+        <meta
+            name="description"
+            content="Felipe Públio is a Senior Backend Engineer with 9+ years of experience building high-scale financial and cloud platforms in Go and Java."
+        />
+        <link rel="canonical" href="https://www.publio.dev/" />
+
+        <meta name="color-scheme" content="dark" />
+        <meta name="theme-color" content="#22231f" />
+
+        <meta property="og:type" content="profile" />
+        <meta
+            property="og:title"
+            content="Felipe Públio — Senior Backend Engineer"
+        />
+        <meta property="og:url" content="https://www.publio.dev/" />
+        <meta
+            property="og:image"
+            content="https://www.publio.dev/img/profile.webp"
+        />
+        <meta property="og:image:width" content="640" />
+        <meta property="og:image:height" content="640" />
+        <meta property="og:image:alt" content="Felipe Públio" />
+        <meta
+            property="og:description"
+            content="Senior Backend Engineer building high-scale financial and cloud platforms in Go and Java."
+        />
+        <meta property="og:site_name" content="Felipe Públio" />
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:creator" content="@publi0" />
+
+        <link rel="icon" href="./img/disk.ico" />
+        <link rel="apple-touch-icon" href="./img/disk.ico" />
+        <link rel="stylesheet" href="./style.css?v=20260731-4" />
     </head>
 
     <body>
-        <div class="container">
-            <div class="header-section">
-                <div class="header-frame">
+        <main class="card">
+            <header class="identity">
+                <div class="identity__copy">
+                    <p class="location">São Paulo, Brazil</p>
                     <h1>Felipe Canton Públio</h1>
-                    <h2>Senior Backend Engineer</h2>
+                    <p class="role">Senior Backend Engineer</p>
+                    <p class="bio">
+                        9+ years building high-scale financial and cloud
+                        platforms in Go and Java.
+                    </p>
                 </div>
-                <div class="img-frame">
-                    <img id="propic" src="./img/profile.jpg" />
+
+                <div class="portrait">
+                    <img
+                        src="./img/profile.webp"
+                        width="640"
+                        height="640"
+                        alt="Felipe Públio"
+                        decoding="async"
+                        fetchpriority="high"
+                    />
                 </div>
-            </div>
-            <div class="links">
-                [<a href="https://www.publio.dev/gh"><span>github</span></a>]
-                [<a href="https://www.publio.dev/medium"><span>medium</span></a>]
-                [<a href="https://www.publio.dev/yt"><span>youtube</span></a>]
-                [<a href="https://www.publio.dev/in"><span>linkedin</span></a>]
-                [<a href="https://www.publio.dev/cv"><span>curriculum</span></a>]
-            </div>
-            <div class="bio">
-                7+ years building backend systems. Focused on cloud
-                infrastructure, networking, and API design. Linux daily driver.
-            </div>
-            <div class="stack">
-                <strong>languages:</strong> Go, Java, Rust<br />
-                <strong>infra:</strong> AWS, Terraform, Docker, Linux<br />
-                <strong>data:</strong> PostgreSQL, Cassandra, Kafka, RabbitMQ
-            </div>
-            <div class="contact">
-                São Paulo, Brazil<br />
-                <a href="mailto:felipe@publio.dev">felipe@publio.dev</a>
-            </div>
-        </div>
-        <script src="./script.js"></script>
+            </header>
+
+            <nav class="contact" aria-label="Professional profiles">
+                <p class="section-label">Find me</p>
+
+                <ul class="links">
+                    <li>
+                        <a
+                            href="https://www.publio.dev/gh"
+                            rel="me"
+                            aria-label="Felipe Públio on GitHub"
+                            >github</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://x.com/publi0"
+                            rel="me"
+                            aria-label="Felipe Públio on Twitter"
+                            >twitter</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://www.publio.dev/yt"
+                            rel="me"
+                            aria-label="Felipe Públio on YouTube"
+                            >youtube</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://www.publio.dev/in"
+                            rel="me"
+                            aria-label="Felipe Públio on LinkedIn"
+                            >linkedin</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://www.publio.dev/cv"
+                            aria-label="Felipe Públio curriculum"
+                            >cv</a
+                        >
+                    </li>
+                </ul>
+            </nav>
+
+            <footer class="footer">
+                <p>Distributed Systems · AWS · Kafka · Terraform</p>
+                <address>
+                    <a href="mailto:felipe@publio.dev">felipe@publio.dev</a>
+                </address>
+            </footer>
+        </main>
     </body>
 </html>

@@ -1,384 +1,266 @@
-/* ia-writer-mono-latin-400-normal */
-@font-face {
-    font-family: "iA Writer Mono";
-    font-style: normal;
-    font-display: swap;
-    font-weight: 400;
-    src: url(https://cdn.jsdelivr.net/fontsource/fonts/ia-writer-mono@latest/latin-400-normal.woff2)
-            format("woff2"),
-        url(https://cdn.jsdelivr.net/fontsource/fonts/ia-writer-mono@latest/latin-400-normal.woff)
-            format("woff");
-}
-
-/* ia-writer-mono-latin-700-normal */
-@font-face {
-    font-family: "iA Writer Mono";
-    font-style: normal;
-    font-display: swap;
-    font-weight: 700;
-    src: url(https://cdn.jsdelivr.net/fontsource/fonts/ia-writer-mono@latest/latin-700-normal.woff2)
-            format("woff2"),
-        url(https://cdn.jsdelivr.net/fontsource/fonts/ia-writer-mono@latest/latin-700-normal.woff)
-            format("woff");
-}
-
-/* ia-writer-mono-latin-400-italic */
-@font-face {
-    font-family: "iA Writer Mono";
-    font-style: italic;
-    font-display: swap;
-    font-weight: 400;
-    src: url(https://cdn.jsdelivr.net/fontsource/fonts/ia-writer-mono@latest/latin-400-italic.woff2)
-            format("woff2"),
-        url(https://cdn.jsdelivr.net/fontsource/fonts/ia-writer-mono@latest/latin-400-italic.woff)
-            format("woff");
-}
-
-/* ia-writer-mono-latin-700-italic */
-@font-face {
-    font-family: "iA Writer Mono";
-    font-style: italic;
-    font-display: swap;
-    font-weight: 700;
-    src: url(https://cdn.jsdelivr.net/fontsource/fonts/ia-writer-mono@latest/latin-700-italic.woff2)
-            format("woff2"),
-        url(https://cdn.jsdelivr.net/fontsource/fonts/ia-writer-mono@latest/latin-700-italic.woff)
-            format("woff");
-}
-
 :root {
-    --white: #efefef;
-    --transwhite: rgba(239, 239, 239, 0.7);
-    --moretranswhite: rgba(239, 239, 239, 0.1);
-    --black: #252525;
-    --transblack: rgba(37, 37, 37, 0.7);
-    --moretransblack: rgba(37, 37, 37, 0.1);
-    --gray: #a4a4a4;
-    --highlight: #e5ffc3;
-    --red: #e4002b;
+    color-scheme: dark;
+    --background: #22231f;
+    --surface: #2a2b26;
+    --text: #f1f0e9;
+    --muted: #aaa99f;
+    --quiet: #77786f;
+    --line: #3e4038;
     --green: #24d05a;
     --pink: #eb4888;
     --blue: #10a2f5;
     --yellow: #e9bc3f;
+    --focus: #f0c85a;
 }
 
-html,
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-width: 20rem;
+    background: var(--background);
+    text-rendering: optimizeLegibility;
+}
+
 body {
-    width: 100%;
+    display: grid;
+    min-height: 100svh;
     margin: 0;
-    padding: 0;
-    background: var(--black);
-    color: var(--white);
+    color: var(--text);
+    background: var(--background);
+    font-family:
+        ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Monaco, Consolas,
+        "Liberation Mono", monospace;
 }
 
-body,
-button {
-    font-family: "iA Writer Mono", monospace;
+.card {
+    align-self: center;
+    width: min(calc(100% - 3rem), 50rem);
+    margin-inline: auto;
+    padding-block: clamp(3rem, 9vh, 6rem);
 }
 
-::selection {
-    background-color: var(--highlight);
-    color: var(--black);
-}
-
-body .go-home,
-a,
-.hubspot input,
-.hubspot label span {
-    background: var(--black);
-    color: var(--white);
-}
-
-.hubspot input {
-    border: 3px solid var(--white);
-}
-
-button {
-    width: 120px;
-    height: 30px;
-    background: transparent;
-    border: 2px solid var(--gray);
-    border-radius: 15px;
-    box-sizing: border-box;
-    color: var(--gray);
-    font-size: 1rem;
-    overflow: auto;
-    transition: 0.4s ease all;
-}
-button:hover {
-    background: rgba(150, 151, 156, 0.1);
-    cursor: pointer;
-}
-
-.container {
-    margin: 50px auto;
-    padding: 5px;
-    max-width: 650px;
-}
-@media (max-width: 600px) {
-    .container {
-        padding: 20px;
-    }
-}
-
-.header-section {
-    display: flex;
+.identity {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) clamp(15rem, 29vw, 17rem);
+    gap: clamp(2rem, 4vw, 2.5rem);
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
 }
 
-.header-frame {
-    max-width: 350px;
-    margin: 0 auto;
+.identity__copy {
+    min-width: 0;
 }
 
-.go-home {
-    position: fixed;
-    top: 5px;
-    left: 20px;
-    padding: 5px 5px 5px 0;
-    background: var(--black);
-    box-sizing: border-box;
+.location,
+.section-label,
+.role,
+.bio,
+.footer p {
+    margin: 0;
 }
 
-.dark-mode-toggler {
-    position: fixed;
-    top: 5px;
-    right: 20px;
-}
-.dark-mode-toggler label {
-    position: relative;
-}
-.dark-mode-toggler input[type="checkbox"] {
-    display: none;
-}
-.dark-mode-toggler input[type="checkbox"] + label::before {
-    content: "";
-    display: block;
-    height: 26px;
-    width: 60px;
-    background: var(--black);
-    border: 2px solid var(--gray);
-    border-radius: 15px;
-    position: absolute;
-    top: 0px;
-    left: -65px;
-}
-.dark-mode-toggler input[type="checkbox"] + label::after {
-    content: "";
-    display: block;
-    height: 20px;
-    width: 20px;
-    background: var(--gray);
-    border: 2px solid var(--white);
-    border-radius: 50%;
-    position: absolute;
-    top: 3px;
-    left: -62px;
-    transition: all 0.4s ease-in;
-}
-.dark-mode-toggler input[type="checkbox"]:checked + label::before {
-    background: var(--black);
-    border: 2px solid var(--white);
-}
-.dark-mode-toggler input[type="checkbox"]:checked + label::after {
-    left: -28px;
-    background: var(--black);
-    border: 2px solid var(--white);
-    transition: all 0.4s ease-in;
+.location,
+.section-label {
+    color: var(--muted);
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    line-height: 1.5;
+    text-transform: uppercase;
 }
 
 h1 {
-    font-weight: 400;
-    margin: 0;
+    max-width: 13ch;
+    margin: 0.6rem 0 0;
+    font-size: clamp(2.25rem, 6vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -0.055em;
+    line-height: 0.98;
+    text-wrap: balance;
 }
 
-h2 {
-    color: var(--gray);
-    font-weight: 300;
-    margin: 0 0 0.5em 0;
-}
-
-a {
-    color: var(--white);
-    text-decoration-thickness: 0.3ex;
-    text-underline-offset: 0.3ex;
-}
-a:hover {
-    font-weight: bold;
-}
-
-table {
-    margin: 20px auto;
-    border-collapse: collapse;
-}
-
-thead tr {
-    border-bottom: 3px solid var(--white);
-}
-
-tbody tr:not(:last-child) {
-    border-bottom: 2px solid var(--gray);
-}
-
-tr td {
-    padding: 20px;
-}
-
-tr td:nth-child(1) {
-    padding-left: 0;
-    font-weight: bold;
-}
-
-tr td:nth-child(2) {
-    padding-right: 0;
-    text-align: right;
-}
-
-br {
-    display: block;
-    content: "";
-    margin-bottom: 15px;
-}
-
-tr td br {
-    margin-bottom: 0;
-}
-
-.img-frame {
-    position: relative;
-    width: 225px;
-    height: 225px;
-    margin: 0 0 10px 0;
-    border-radius: 50%;
-    overflow: hidden;
-}
-.img-frame img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.links {
-    margin: 25px 0;
-    word-spacing: 0.5em;
-}
-.links a {
-    text-decoration: none;
-}
-.links a span {
-    text-decoration: underline;
-    text-decoration-thickness: 0.3ex;
-    text-underline-offset: 0.3ex;
-}
-.links a:hover span {
-    font-weight: bold;
-}
-
-.newsletter-blurb {
-    margin: 30px 0;
-    line-height: 1.6;
-}
-
-.newsletter-blurb span {
-    /* color: var(--pink); */
-    text-shadow: 1px 1px 0 var(--pink);
-    /* font-weight: bold; */
-}
-
-.newsletter-blurb span.green {
-    text-shadow: 1px 1px 0 var(--green);
-}
-
-.newsletter-blurb span.blue {
-    text-shadow: 1px 1px 0 var(--blue);
-}
-
-.newsletter-blurb span.yellow {
-    text-shadow: 1px 1px 0 var(--yellow);
-}
-
-.newsletter-blurb .issue-links {
-    text-align: center;
-}
-
-.hubspot label span {
-    color: var(--white);
-}
-
-.hubspot input {
-    padding: 5px;
-    color: var(--white);
-    font-family: "iA Writer Mono", monospace;
-    font-size: 1em;
-    border: 3px solid var(--white);
-}
-
-.hubspot input[type="submit"] {
-    cursor: pointer;
-}
-
-.hubspot ul {
-    padding: 0;
-    color: var(--gray);
-    font-size: 0.8em;
-    list-style-type: none;
-}
-
-.hubspot .actions {
-    margin: 1em 0;
-}
-
-.hubspot .submitted-message {
-    color: var(--pink);
-}
-
-.sneaky-sponsor {
-    color: var(--gray);
-}
-
-@media (max-width: 600px) {
-    .links {
-        text-align: center;
-    }
-}
-
-.toggler {
-    margin: 25px 0;
-}
-.toggler .show {
-    border-color: var(--pink);
-    color: var(--pink);
-}
-@media (max-width: 600px) {
-    .toggler {
-        text-align: center;
-    }
-    .toggler button {
-        margin: 5px;
-    }
+.role {
+    margin-top: 1.1rem;
+    color: var(--text);
+    font-size: clamp(1rem, 1.6vw, 1.125rem);
+    font-weight: 700;
+    line-height: 1.5;
 }
 
 .bio {
-    line-height: 1.6;
-    font-size: clamp(1rem, 0.96rem + 0.22vw, 1.125rem);
+    max-width: 39rem;
+    margin-top: 0.75rem;
+    color: var(--muted);
+    font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+    line-height: 1.7;
+    text-wrap: pretty;
 }
 
-.stack {
-    margin: 25px 0;
-    line-height: 1.8;
-    color: var(--gray);
+.portrait {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 1.75rem;
+    background: var(--surface);
 }
 
-.stack strong {
-    color: var(--white);
+.portrait img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.08);
+    transform-origin: 50% 44%;
 }
 
 .contact {
-    margin: 25px 0;
-    line-height: 1.6;
+    margin-top: clamp(2.5rem, 7vw, 4.5rem);
+    padding-block: 1.25rem 1rem;
+    border-block: 1px solid var(--line);
+}
+
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1.2rem;
+    margin: 0.45rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    color: var(--text);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    text-decoration-line: underline;
+    text-decoration-color: var(--link-color);
+    text-decoration-thickness: 0.16em;
+    text-underline-offset: 0.27em;
+    overflow-wrap: anywhere;
+    transition:
+        color 160ms ease-out,
+        text-decoration-color 160ms ease-out;
+}
+
+.links li:nth-child(1) {
+    --link-color: var(--green);
+}
+
+.links li:nth-child(2),
+.links li:nth-child(4) {
+    --link-color: var(--blue);
+}
+
+.links li:nth-child(3) {
+    --link-color: var(--pink);
+}
+
+.links li:nth-child(5) {
+    --link-color: var(--yellow);
+}
+
+.links a::before {
+    content: "[";
+    margin-inline-end: 0.12em;
+    color: var(--quiet);
+    text-decoration: none;
+}
+
+.links a::after {
+    content: "]";
+    margin-inline-start: 0.12em;
+    color: var(--quiet);
+    text-decoration: none;
+}
+
+.links a:hover {
+    color: var(--link-color);
+    text-decoration-color: currentcolor;
+}
+
+.links a:active {
+    color: var(--focus);
+}
+
+.links a:focus-visible,
+.footer a:focus-visible {
+    border-radius: 0.15rem;
+    outline: 2px solid var(--focus);
+    outline-offset: 0.25rem;
+}
+
+.footer {
+    margin-top: 1.25rem;
+}
+
+.footer p {
+    color: var(--muted);
+    font-size: 0.875rem;
+    line-height: 1.7;
+}
+
+.footer address {
+    margin-top: 0.65rem;
+    font-style: normal;
+}
+
+.footer a {
+    color: var(--text);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    text-decoration-color: var(--muted);
+    text-decoration-thickness: 0.12em;
+    text-underline-offset: 0.25em;
+}
+
+.footer a:hover {
+    color: var(--green);
+    text-decoration-color: currentcolor;
+}
+
+@media (max-width: 36rem) {
+    .card {
+        width: min(calc(100% - 2rem), 30rem);
+        padding-block: 2rem 2.5rem;
+    }
+
+    .identity {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .identity__copy {
+        grid-row: 2;
+    }
+
+    .portrait {
+        grid-row: 1;
+        width: 11rem;
+        border-radius: 1.5rem;
+    }
+
+    h1 {
+        font-size: clamp(2.15rem, 12vw, 3rem);
+    }
+
+    .contact {
+        margin-top: 2.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .links a {
+        transition: none;
+    }
+}
+
+@media (forced-colors: active) {
+    .links a {
+        text-decoration-color: LinkText;
+    }
 }
